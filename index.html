@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+  <style>
+   .owl-prev{
+    display: none;
+   }
+  </style>
+
+  </head>
+  <body>
+      <div> 
+      <header>
+        <div class="container">
+        <div class="top-header">
+          <!-- As a link -->
+          <nav class="navbar ">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"><img src="images/logo-dark.png"></a>
+            </div>
+          </nav>
+        </div>
+      </div>
+      </header>
+    
+      <section class="main-slider">
+        <div class="container">
+        <div class="owl-carousel">
+          <div class="single-item">
+            <div class="slide-1">
+              <div class="slider-image">
+                <img src="images/slide1.png">
+              </div>
+              <div class="slide-content">
+                <h4>Select a carrier</h4>
+                <p>
+                  AT&T, Verizon, T-Mobile, and many <br> more carrier to choose.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="single-item">
+            <div class="slide-2">
+              <div class="slider-image">
+                <img src="images/slide2.png">
+              </div>
+              <div class="slide-content">
+                <h4>Enter your mobile number</h4>
+                <p>
+                  Verify your number once via SMS<br> and have access to your profile.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="single-item">
+            <div class="slide-3">
+              <div class="slider-image">
+                <img src="images/slide3.png">
+              </div>
+              <div class="slide-content">
+                <h4>Select Top-Up</h4>
+                <p>
+                  Select how much you want to refill<br> from $10 up to $120.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="single-item">
+            <div class="slide-4">
+              <div class="slider-image">
+                <img src="images/slide4.png">
+              </div>
+              <div class="slide-content">
+                <h4>Make payment</h4>
+                <p>
+                  Pay with credit card, Apple Pay <br>Google Pay, or with Samsung Pay.  
+                </p>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <div class="skip">
+          <a href="#">Skip</a>
+        </div>
+        </div>
+      </section>
+    </div>
+
+ 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script>
+   $('body').append('<div class="loader"><div class="loader-screen"><img src="images/logo.png"><div id="loader"></div></div></div>');
+$(window).on('load', function(){
+
+  setTimeout(removeLoader, 1000); //wait for page load PLUS two seconds.
+  
+});
+function removeLoader(){
+
+    $( ".loader" ).fadeOut(900, function() {
+     
+      // fadeOut complete. Remove the loading div
+      $( ".loader" ).remove(); //makes page more lightweight 
+     
+  }); 
+
+}
+$(document).ready(function(){
+  $("#home").addClass(".home-1");
+});
+       </script>
+     
+     <script>
+    $(document).ready(function(){
+    var owl = $(".owl-carousel");
+    owl.on('changed.owl.carousel',function(property){
+        var current = property.item.index;
+        var src = $(property.target).find(".single-item").eq(current).find("img").attr('src');
+        console.log('Image current is ' + current);
+
+        if(current == 2)
+        {
+          $('.owl-prev').hide();
+        }else{
+          $('.owl-prev').show();
+          // $('.btn-back').html("<i class='fa fa-arrow-left-long'></i> Back");
+        }
+
+       
+
+        if(current == 5)
+        {
+          // $('.btn-next').html("<a href='#'> Let's go  <i class='fa fa-arrow-right-long'></i> </a>");
+          $('button.owl-next').replaceWith('<a class="login-link" href="login.html"><button type="button" class="owl-next"><span class="btn-next">Lets go<i class="fa fa-arrow-right-long"></i></span></button></a>');
+          
+        } else{
+          $('a>button.owl-next').replaceWith('<button type="button" class="owl-next"><span  class="btn-next">Next<i class="fa fa-arrow-right-long"></i></span></button>');  
+
+        }
+    });
+
+  owl.owlCarousel({
+    loop: true,
+    nav: true,
+    navText:[
+              '<span aria-label="Previous" class="btn-back">Back</span>',
+              '<span aria-label="Next" class="btn-next">Next<i class="fa fa-arrow-right-long"></i></span>'
+            ],
+    items: 1,
+    autoplay: false,
+    // autoplayTimeout: 2000,
+    autoplayHoverPause: true,
+    dots: true,
+    responsiveClass:true,
+   
+  });
+});
+	
+       </script>
+  </body>
+</html>
